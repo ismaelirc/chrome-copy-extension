@@ -19,25 +19,20 @@ function addCopy(){
 function saveToLocalStorage(objCopy){
     console.log(objCopy);
 
-    const newElement = createElements('container_descriptions');
-    const elementCopy = createElements('copy_description', objCopy.text);
-    newElement.id = objCopy.id;
-    document.getElementById('container').appendChild(elementCopy);
-    let nE = newElement.querySelector(objCopy.id);
-
-    nE.appendChild(elementCopy);
-    document.getElementById('container').appendChild(newElement);
+    const newElement = createElements('container_descriptions',objCopy.text, objCopy.id);
+    
+    document.getElementById('container_content').appendChild(newElement);
     
 }
 
-function createElements(className,htmlText = '', type = 'div'){
+function createElements(className,htmlText = '',id = null, type = 'div'){
 
     const element = document.createElement(type);
     element.classList.add(className);
-
+    element.id = id;
+    
     if(htmlText){
         element.appendChild(document.createTextNode(htmlText));
-
     }
 
     return element;
