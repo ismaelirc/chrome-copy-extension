@@ -5,12 +5,23 @@ function addCopy(){
 
     if(text){
 
-        // Create a new Date object
         const currentDate = new Date();
         // Get the timestamp (milliseconds since the Unix epoch)
         const timestamp = currentDate.getTime();
 
-        saveToLocalStorage({'id': timestamp,'text':text});
+        const objCopy = {'id': timestamp,'text':text};
+
+        const newElement = createElements('container_descriptions',objCopy.text, objCopy.id);
+        
+        newElement.addEventListener('click', copyText);
+        const buttonDelete = document.createElement('button');
+        buttonDelete.textContent = 'Delete copy';
+
+        newElement.appendChild(buttonDelete);
+
+        document.getElementById('container_content').appendChild(newElement);
+
+        saveToLocalStorage(objCopy);
         document.getElementById("textTosave").value = '';
     }
 
@@ -18,10 +29,6 @@ function addCopy(){
 
 function saveToLocalStorage(objCopy){
     console.log(objCopy);
-
-    const newElement = createElements('container_descriptions',objCopy.text, objCopy.id);
-    
-    document.getElementById('container_content').appendChild(newElement);
     
 }
 
@@ -37,4 +44,9 @@ function createElements(className,htmlText = '',id = null, type = 'div'){
 
     return element;
 
+}
+
+function copyText(event){
+    const copyIdText = event.target.id;
+    navigator.clipboard.writeText(event.target.outerText);
 }
