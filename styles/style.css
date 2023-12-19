@@ -48,7 +48,7 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     width: 480px;
-    padding: 7px;
+    padding: 7px 0 7px 0;
     margin-top: 4px;
     transition: transform .2s;
     border-radius: 5px;
@@ -89,4 +89,14 @@ body{
     width: 100%;
     font-size: 0.1rem;
     color: var(--color-white);
+}
+
+.button_delete{
+    background-color: red;
+    color: var(--color-white);
+    border: 0;
+    border-radius: 3px;
+    padding: 4px;
+    margin-left: 5px;
+    font-size: 0.8rem;
 }
