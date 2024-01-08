@@ -1,3 +1,5 @@
+import createComponent from "./lib/CreateComponent.js";
+
 document.getElementById("buttonSave").addEventListener('click', addCopy);
 
 function addCopy(){
@@ -5,28 +7,14 @@ function addCopy(){
 
     if(text){
 
-        const currentDate = new Date();
-        // Get the timestamp (milliseconds since the Unix epoch)
-        const timestamp = currentDate.getTime();
+        const objCopy = {'text':text};
 
-        const objCopy = {'id': timestamp,'text':text};
-
-        const newElement = createElements('container_descriptions',objCopy.text, objCopy.id);
+        const newElement = createElements('container_descriptions',objCopy.text);
         
-        const buttonCopy = document.createElement('button');
-        buttonCopy.textContent = 'Copy';
-        buttonCopy.classList.add('button_application');
-        buttonCopy.classList.add('button_copy');
-        buttonCopy.addEventListener('click',copyText);
-
+        const buttonCopy = createComponent('button','Copy',['button_copy','button_application'],'click',copyText);
         newElement.appendChild(buttonCopy);
 
-        const buttonDelete = document.createElement('button');
-        buttonDelete.textContent = 'Delete';
-        buttonDelete.classList.add('button_application');
-        buttonDelete.classList.add('button_delete');
-        buttonDelete.addEventListener('click',deleteCopy);
-
+        const buttonDelete = createComponent('button','Delete',['button_delete','button_application'],'click',deleteCopy);
         newElement.appendChild(buttonDelete);
 
         document.getElementById('container_content').appendChild(newElement);
@@ -42,11 +30,15 @@ function saveToLocalStorage(objCopy){
     
 }
 
-function createElements(className,htmlText = '',id = null, type = 'div'){
+function createElements(className,htmlText = '', type = 'div'){
+
+    const currentDate = new Date();
+    // Get the timestamp (milliseconds since the Unix epoch)
+    const timestamp = currentDate.getTime();
 
     const element = document.createElement(type);
     element.classList.add(className);
-    element.id = id;
+    element.id = timestamp;
     
     if(htmlText){
         element.appendChild(document.createTextNode(htmlText));

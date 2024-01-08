@@ -105,6 +105,6 @@ body{
 }
 
 .button_copy{
-    background-color: var(--button-color);
+    background-color: #04AA6D;
     margin: 0 3px 0 3px;
 }

@@ -4,6 +4,7 @@
     "description": "A simple way to save temporarily some information. When you`re browsing into a website, somethings you need to save some information. Use this extension for do this!",
     "manifest_version": 3,
     "author": "Ismael Costa",
+    "permissions": ["activeTab"],
     "action":{
         "default_popup": "index.html",
         "default_title": "Temporarily save information"
