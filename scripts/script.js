@@ -18,7 +18,7 @@ function addCopy(){
         const buttonCopy = createComponent({element:'button',textContent:'Copy',classes:['button_copy','button_application'],onclick: copyText});
         newElement.appendChild(buttonCopy);
 
-        const buttonDelete = createComponent({element:'button',textContent:'Copy',classes:['button_delete','button_application'],onclick: deleteCopy});
+        const buttonDelete = createComponent({element:'button',textContent:'Delete',classes:['button_delete','button_application'],onclick: deleteCopy});
         newElement.appendChild(buttonDelete);
 
         document.getElementById('container_content').appendChild(newElement);
