@@ -56,5 +56,9 @@ function copyText(event){
 
 function deleteCopy(event){
     console.log(event.target.parentElement.id);
+    
+    console.log(document.getElementById(event.target.parentElement.id));
+
+    console.log(document.getElementById(event.target.parentElement.id).remove());
 
 }
