@@ -6,14 +6,13 @@ function addCopy(){
     const text = document.getElementById("textTosave").value;
 
     if(text){
-
-        const objCopy = {'text':text};
-        
         const currentDate = new Date();
         // Get the timestamp (milliseconds since the Unix epoch)
         const timestamp = currentDate.getTime();
 
-        const newElement = createComponent({element:'div', textContent:objCopy.text,id:timestamp,classes: ['container_descriptions'] });
+        const objCopy = {id: timestamp, text:text};
+    
+        const newElement = createComponent({element:'div', textContent:objCopy.text,id:objCopy.id,classes: ['container_descriptions'] });
         
         const buttonCopy = createComponent({element:'button',textContent:'Copy',classes:['button_copy','button_application'],onclick: copyText});
         newElement.appendChild(buttonCopy);
