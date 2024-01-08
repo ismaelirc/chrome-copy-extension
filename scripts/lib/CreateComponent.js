@@ -1,14 +1,25 @@
-export default function createComponent(componentType, componentText, componentClasses = [], eventListner = '' , eventListnerFunction ){
+export default function createComponent(componentObj){
     
-    let element = document.createElement(componentType);
-    element.textContent = componentText;
+        const element = document.createElement(componentObj.element);
+    
+        // Set the class attribute
+        if (componentObj.classes) {
+            element.classList.add(...componentObj.classes);
+        }
+    
+        // Set other properties like text content, onclick, etc.
+        if (componentObj.textContent) {
+            element.textContent = componentObj.textContent;
+        }
+    
+        if (componentObj.id) {
+            element.id = componentObj.id;
+        }
+    
+        if (componentObj.onclick) {
+            element.addEventListener('click',componentObj.onclick);
+        }
 
-    element.classList.add(...componentClasses);
-
-    if(eventListner){
-        element.addEventListener(eventListner,eventListnerFunction);
-    }
-
-    return element;
+        return element;
 
 }

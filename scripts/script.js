@@ -8,17 +8,21 @@ function addCopy(){
     if(text){
 
         const objCopy = {'text':text};
-
-        const newElement = createElements('container_descriptions',objCopy.text);
         
-        const buttonCopy = createComponent('button','Copy',['button_copy','button_application'],'click',copyText);
+        const currentDate = new Date();
+        // Get the timestamp (milliseconds since the Unix epoch)
+        const timestamp = currentDate.getTime();
+
+        const newElement = createComponent({element:'div', textContent:objCopy.text,id:timestamp,classes: ['container_descriptions'] });
+        
+        const buttonCopy = createComponent({element:'button',textContent:'Copy',classes:['button_copy','button_application'],onclick: copyText});
         newElement.appendChild(buttonCopy);
 
-        const buttonDelete = createComponent('button','Delete',['button_delete','button_application'],'click',deleteCopy);
+        const buttonDelete = createComponent({element:'button',textContent:'Copy',classes:['button_delete','button_application'],onclick: deleteCopy});
         newElement.appendChild(buttonDelete);
 
         document.getElementById('container_content').appendChild(newElement);
-
+    
         saveToLocalStorage(objCopy);
         document.getElementById("textTosave").value = '';
     }
@@ -30,23 +34,6 @@ function saveToLocalStorage(objCopy){
     
 }
 
-function createElements(className,htmlText = '', type = 'div'){
-
-    const currentDate = new Date();
-    // Get the timestamp (milliseconds since the Unix epoch)
-    const timestamp = currentDate.getTime();
-
-    const element = document.createElement(type);
-    element.classList.add(className);
-    element.id = timestamp;
-    
-    if(htmlText){
-        element.appendChild(document.createTextNode(htmlText));
-    }
-
-    return element;
-
-}
 
 function copyText(event){
     const copyIdText = event.target.parentNode.id;
