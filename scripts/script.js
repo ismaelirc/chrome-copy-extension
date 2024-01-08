@@ -13,10 +13,17 @@ function addCopy(){
 
         const newElement = createElements('container_descriptions',objCopy.text, objCopy.id);
         
-        newElement.addEventListener('click', copyText);
+        const buttonCopy = document.createElement('button');
+        buttonCopy.textContent = 'Copy';
+        buttonCopy.classList.add('button_application');
+        buttonCopy.classList.add('button_copy');
+        buttonCopy.addEventListener('click',copyText);
+
+        newElement.appendChild(buttonCopy);
 
         const buttonDelete = document.createElement('button');
         buttonDelete.textContent = 'Delete';
+        buttonDelete.classList.add('button_application');
         buttonDelete.classList.add('button_delete');
         buttonDelete.addEventListener('click',deleteCopy);
 
@@ -50,8 +57,9 @@ function createElements(className,htmlText = '',id = null, type = 'div'){
 }
 
 function copyText(event){
-    const copyIdText = event.target.id;
-    navigator.clipboard.writeText(event.target.outerText);
+    const copyIdText = event.target.parentNode.id;
+    navigator.clipboard.writeText(document.getElementById(copyIdText).firstChild.data);
+    
 }
 
 function deleteCopy(event){
