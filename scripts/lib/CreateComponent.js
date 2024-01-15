@@ -19,7 +19,7 @@ export default function createComponent(componentObj){
         if (componentObj.onclick) {
             element.addEventListener('click',componentObj.onclick);
         }
-
+    
         return element;
 
 }

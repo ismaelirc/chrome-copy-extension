@@ -1,6 +1,19 @@
 import createComponent from "./lib/CreateComponent.js";
+import LoadCopiesGateway from "./gateways/LoadCopiesGateway.js";
+import SaveCopiesGateway from "./gateways/SaveCopiesGateway.js";
 
 document.getElementById("buttonSave").addEventListener('click', addCopy);
+
+const textsLoaded = loadTextsFromLocalStorage();
+
+if(textsLoaded){
+    
+    textsLoaded.forEach(txt => {
+        createElemenst(txt);
+    });
+
+}
+
 
 function addCopy(){
     const text = document.getElementById("textTosave").value;
@@ -12,27 +25,44 @@ function addCopy(){
 
         const objCopy = {id: timestamp, text:text};
     
-        const newElement = createComponent({element:'div', textContent:objCopy.text,id:objCopy.id,classes: ['container_descriptions'] });
+        createElemenst(objCopy);
         
-        const buttonCopy = createComponent({element:'button',textContent:'Copy',classes:['button_copy','button_application'],onclick: copyText});
-        newElement.appendChild(buttonCopy);
+        const itens = loadTextsFromLocalStorage();
+        itens.push(objCopy);
 
-        const buttonDelete = createComponent({element:'button',textContent:'Delete',classes:['button_delete','button_application'],onclick: deleteCopy});
-        newElement.appendChild(buttonDelete);
-
-        document.getElementById('container_content').appendChild(newElement);
-    
-        saveToLocalStorage(objCopy);
+        saveToLocalStorage(itens);
         document.getElementById("textTosave").value = '';
     }
 
 }
 
-function saveToLocalStorage(objCopy){
-    console.log(objCopy);
+function createElemenst(objCopy){
+    
+    const newElement = createComponent({element:'div', textContent:objCopy.text,id:objCopy.id,classes: ['container_descriptions'] });
+        
+    const buttonCopy = createComponent({element:'button',textContent:'Copy',classes:['button_copy','button_application'],onclick: copyText});
+    newElement.appendChild(buttonCopy);
+
+    const buttonDelete = createComponent({element:'button',textContent:'Delete',classes:['button_delete','button_application'],onclick: deleteCopy});
+    newElement.appendChild(buttonDelete);
+
+    document.getElementById('container_content').appendChild(newElement);
     
 }
 
+function saveToLocalStorage(itens){
+    
+    const saveCopies = new SaveCopiesGateway();
+    saveCopies.saveLocalStorage(itens);
+
+}
+
+function loadTextsFromLocalStorage(){
+    
+    const loadCopies = new LoadCopiesGateway();
+
+    return loadCopies.loadFromLocalStorage();
+}
 
 function copyText(event){
     const copyIdText = event.target.parentNode.id;
@@ -41,10 +71,20 @@ function copyText(event){
 }
 
 function deleteCopy(event){
-    console.log(event.target.parentElement.id);
+
+    const id = event.target.parentNode.id;
+    document.getElementById(id).remove();
     
-    console.log(document.getElementById(event.target.parentElement.id));
+    if(id){
+        const texts = loadTextsFromLocalStorage();
+        const newTexts = [];
 
-    console.log(document.getElementById(event.target.parentElement.id).remove());
+        texts.forEach(txt => {
+            if(txt.id != id){
+                newTexts.push({id: txt.id, text: txt.text});
+            }
 
+        });
+        saveToLocalStorage(newTexts);
+    }
 }
