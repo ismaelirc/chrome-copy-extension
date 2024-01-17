@@ -10,4 +10,4 @@ Extension build to provide a simply way to save a little texts and links when yo
 - Transcript to typescript (Maybe?)
 
 ## Installation
-Intalling using the Google Chrome Extension Store
+[Chrome web store](https://chromewebstore.google.com/detail/save-temporary-info/lhcmddmcheenachimjeeoolelccajgbh?hl=pt-BR)
