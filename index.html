@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;200;400;600;700&family=Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100;200;400;600;700&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Copy Paste Chrome Extension</title>
-</head>
-    <body>
-        <section id="container" class="container">
-            <p class="title_page">Type the text to quickly save and access</p>
-            <div class="container_input">
-                <input type="text" class="container_text" id="textTosave" maxlength="80" />
-            </div>
-            <div class="container_input">
-                <button class="container_button" id="buttonSave" >Save</button>
-            </div>
-            <p class="title_copies">Copies</p>
-            
-            <div id="container_content"></div>
-        </section>
-    </body>
-    <script type="module" src="scripts/script.js"></script>
+  </head>
+  <body>
+    <section id="container" class="container">
+      <p class="title_page">Type the text to quickly save and access it</p>
+      <div class="container_input">
+        <input
+          type="text"
+          class="container_text"
+          id="textTosave"
+          maxlength="80"
+        />
+      </div>
+      <div class="container_input">
+        <button class="container_button" id="buttonSave">Save</button>
+      </div>
+      <p class="title_copies">Copies</p>
+
+      <div id="container_content"></div>
+    </section>
+  </body>
+  <script type="module" src="scripts/script.js"></script>
 </html>
