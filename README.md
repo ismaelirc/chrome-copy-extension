@@ -1,6 +1,6 @@
 # Copy Paste for Chrome
 
-Extension build to provide a simply way to save a little texts and links when yout using Goolge Chrome.
+Extension built to provide a simple way to save small notes and links while using Google Chrome.
 
 ## Features
 
