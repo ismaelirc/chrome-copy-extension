@@ -1,110 +1,144 @@
-*{
-    margin:0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-:root{
-    --fonte-principal: 'Raleway', sans-serif;
-    --fonte-secundaria: 'Playfair Display', sans-serif;
-    --color-white: #ffffff;
+:root {
+  --fonte-principal: "Inter, Raleway", sans-serif;
+  --fonte-secundaria: "Playfair Display", sans-serif;
+  --color-white: #ffffff;
+  --color-off-white: #ededed;
+  --color-custom-red: #dc4949;
 
-    --button-color: #04AA6D;
-    --border-text-color: #707070;
-    --background-color: #B0B0B0;
+  --button-color: #596df1;
+  --border-text-color: #707070;
+  --background-color: #232323;
 }
 
-body{
-    font-family: var(--fonte-principal);
-    background-color: var(--background-color);
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--background-color);
+  overflow: hidden;
 }
 
-.title_page{
-    color: var(--color-white);
+.title_page {
+  color: var(--color-off-white);
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.container{
-    /*border: 1px solid red; */
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 480px;
-    padding: 7px;
+.container {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 480px;
+  padding: 7px;
 }
 
-.container_text{
-    width: 100%;
-    height: 50px;
-    padding-left: 2px;
-    border: 1px solid var(--background-color);
-    border-radius: 5px;
-    box-shadow: 5px 6px 23px -10px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 5px 6px 23px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 6px 23px -10px rgba(0,0,0,0.75);
+.container_text {
+  width: 100%;
+  height: 130px;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  resize: none;
+  outline: none;
 }
 
-.container_descriptions{
-    background-color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 480px;
-    padding: 7px 0 7px 0;
-    margin: 4px;
-    transition: transform .2s;
-    border-radius: 5px;
-    align-items: center;
-    font-size: 0.9rem;
-    overflow: hidden;
+/* Efeito ao focar no textarea */
+.container_text:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3);
+}
+
+.container_descriptions {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+  width: 480px;
+  margin: 4px;
+  transition: transform 0.2s;
+  border-radius: 4px;
+  border: 1px solid #717171;
+  font-size: 0.9rem;
+  overflow: hidden;
+  color: var(--color-off-white);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px; /* Espaço entre os botões */
 }
 
 .container_descriptions:hover {
-    transform: translate(0, -0.1rem);
+  transform: translate(0, -0.1rem);
 }
 
-
-.container_input{
-    display: flex;
-    margin-top: 5px;
-    width: 100%;
-    justify-content: center;
-    /*border: 1px solid blue; */
+.container_input {
+  display: flex;
+  margin-top: 5px;
+  width: 100%;
+  justify-content: center;
+  /*border: 1px solid blue; */
 }
 
-.container_button{
-    width: 100%;
-    height: 2rem;
-    border: 0;
-    margin-top: 6px;
-    color: var(--color-white);
-    background-color: var(--button-color);
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
+.container_button {
+  width: 100%;
+  height: 2.2rem;
+  border: 0;
+  margin-top: 6px;
+  color: var(--color-off-white);
+  background-color: var(--button-color);
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.title_copies{
-    padding-top: 1.2rem;
-    text-align: center;
-    width: 100%;
-    font-size: 0.1rem;
-    color: var(--color-white);
+.title_copies {
+  padding-top: 1.2rem;
+  text-align: left;
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-white);
 }
 
-.button_application{
-    color: var(--color-white);
-    border: 0;
-    border-radius: 3px;
-    padding: 4px;
-    font-size: 0.8rem;
-    cursor: pointer;
+.button_application {
+  color: var(--color-white);
+  border: 0;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
-.button_delete{
-    background-color: red;
+.button_delete {
+  background-color: var(--background-color);
+  height: 2rem;
+  width: 63px;
+  margin: 0 3px 0 3px;
+  font-weight: bold;
+  color: var(--color-custom-red);
 }
 
-.button_copy{
-    background-color: #04AA6D;
-    margin: 0 3px 0 3px;
+.button_copy {
+  background-color: var(--button-color);
+  height: 2rem;
+  width: 63px;
+  margin: 0 3px 0 3px;
+  font-weight: bold;
 }
