@@ -1,3 +1,3 @@
-export default function saveCopiesGateway(itens) {
-  localStorage.setItem("notes", JSON.stringify(itens));
+export default function saveNotesGateway(items) {
+  localStorage.setItem("notes", JSON.stringify(items));
 }

@@ -14,7 +14,7 @@ Extension built to provide a simple way to save small notes and links while usin
 - ✅ update the layout
 - Refactoring the code and improving project organization
 - Implement tests
-- Transcript to typescript
+- Refactor to TypeScript
 
 ## Developed in collaboration with
 
