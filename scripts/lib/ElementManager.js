@@ -17,14 +17,25 @@ export default function elementManager(objCopy) {
     component: "button",
     textContent: "Copy",
     classes: ["button_copy", "button_application"],
-    fnClick: copyNote,
+    fnClick: (event) => {
+      const id = event.target.parentNode.parentNode.id;
+      if (id) {
+        copyNote(id);
+      }
+    },
   });
 
   const buttonDelete = createComponent({
     component: "button",
     textContent: "Delete",
     classes: ["button_delete", "button_application"],
-    fnClick: deleteNote,
+    fnClick: (event) => {
+      const id = event.target.parentNode.parentNode.id;
+      if (id) {
+        document.getElementById(id).remove();
+        deleteNote(id);
+      }
+    },
   });
 
   const buttonDiv = createComponent({

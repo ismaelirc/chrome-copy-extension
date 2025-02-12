@@ -22,31 +22,24 @@ export function addCopy() {
   }
 }
 
-export function copyNote(event) {
-  const copyIdText = event.target.parentNode.parentNode.id;
-
+export function copyNote(id) {
   const texts = loadNotesGateway();
 
   texts.forEach((txt) => {
-    if (txt.id == copyIdText) {
+    if (txt.id == id) {
       navigator.clipboard.writeText(txt.text);
     }
   });
 }
 
-export function deleteNote(event) {
-  const id = event.target.parentNode.parentNode.id;
-  document.getElementById(id).remove();
+export function deleteNote(id) {
+  const texts = loadNotesGateway();
+  const newTexts = [];
 
-  if (id) {
-    const texts = loadNotesGateway();
-    const newTexts = [];
-
-    texts.forEach((txt) => {
-      if (txt.id != id) {
-        newTexts.push({id: txt.id, text: txt.text});
-      }
-    });
-    saveNotesGateway(newTexts);
-  }
+  texts.forEach((txt) => {
+    if (txt.id != id) {
+      newTexts.push({id: txt.id, text: txt.text});
+    }
+  });
+  saveNotesGateway(newTexts);
 }
