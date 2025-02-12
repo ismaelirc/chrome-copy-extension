@@ -1,6 +1,6 @@
 {
   "name": "chrome-extension-copy-paste",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Extension built to provide a simple way to save small notes and links while using Google Chrome.",
   "main": "index.html",
   "scripts": {
