@@ -1,25 +1,36 @@
-export default function createComponent(componentObj){
-    
-        const element = document.createElement(componentObj.element);
-    
-        // Set the class attribute
-        if (componentObj.classes) {
-            element.classList.add(...componentObj.classes);
-        }
-    
-        // Set other properties like text content, onclick, etc.
-        if (componentObj.textContent) {
-            element.textContent = componentObj.textContent;
-        }
-    
-        if (componentObj.id) {
-            element.id = componentObj.id;
-        }
-    
-        if (componentObj.onclick) {
-            element.addEventListener('click',componentObj.onclick);
-        }
-    
-        return element;
+export default function createComponent({
+  component,
+  textContent,
+  id,
+  classes,
+  elementEmbed,
+  fnClick,
+}) {
+  const element = document.createElement(component);
 
+  // Set the class attribute
+  if (classes) {
+    element.classList.add(...classes);
+  }
+
+  // Set other properties like text content, onclick, etc.
+  if (textContent) {
+    if (elementEmbed) {
+      elementEmbed = document.createElement(elementEmbed);
+      elementEmbed.textContent = textContent;
+      element.appendChild(elementEmbed);
+    } else {
+      element.textContent = textContent;
+    }
+  }
+
+  if (id) {
+    element.id = id;
+  }
+
+  if (fnClick) {
+    element.addEventListener("click", fnClick);
+  }
+
+  return element;
 }
