@@ -11,7 +11,7 @@ Extension built to provide a simple way to save small notes and links while usin
 ## To dos
 
 - ✅ Save text and links on localStorage
-- ✅ update the layout
+- ✅ Update the layout
 - ✅ Refactoring the code and improving project organization
 - 🔨 Implement tests
 - Refactor to TypeScript
