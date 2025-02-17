@@ -4,10 +4,10 @@ Extension built to provide a simple way to save small notes and links while usin
 
 ## Features
 
-- Save notes
-- Delete notes
-- Copy notes to clipboard
-
+- ✅ Save notes
+- ✅ Delete notes
+- ✅ Copy notes to clipboard
+  
 ## To dos
 
 - ✅ Save text and links on localStorage
@@ -15,6 +15,7 @@ Extension built to provide a simple way to save small notes and links while usin
 - ✅ Refactoring the code and improving project organization
 - 🔨 Implement tests
 - Refactor to TypeScript
+- Cloud sync
 
 ## Developed in collaboration with
 
